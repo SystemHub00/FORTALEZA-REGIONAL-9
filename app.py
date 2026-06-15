@@ -32,23 +32,26 @@ VALID_DDDS = {
 # 1. LOCAIS
 # =============================================================================
 LOCAL_OPTIONS = [
-    {"id": "1", "nome": "INSTITUTO VELAUMAR"},
+    {"id": "1", "nome": "INSTITUTO ALÉM DOS OLHOS - POLO 1"},
+    {"id": "2", "nome": "INSTITUTO ALÉM DOS OLHOS - POLO 2"},
 ]
 
 # =============================================================================
 # 2. CATÁLOGO DE CURSOS
 # =============================================================================
 COURSE_CATALOG = [
-    {"id": "1", "nome": "26/TRNC 02 - TRANCISTA"},
-    {"id": "2", "nome": "26/OFDN 05 - OFICINA DE DANÇA (SÃO JOÃO)"},
+    {"id": "1", "nome": "26/TRNC 01 - TRANCISTA"},
+    {"id": "2", "nome": "26/PEDI 01 - PEDICURE"},
+    {"id": "3", "nome": "26/SOMD 02 - SOCIAL MEDIA"},
 ]
 
 # =============================================================================
 # 3. HORÁRIOS
 # =============================================================================
 SCHEDULE_OPTIONS = {
-    "1": {"dias_aula": "Segunda a Quarta", "horario": "13h até 18h"},
-    "2": {"dias_aula": "Sexta",            "horario": "18h até 21h"},
+    "1": {"dias_aula": "Segunda e Quarta", "horario": "13h até 18h"},
+    "2": {"dias_aula": "Quarta a Sexta",   "horario": "13h até 18h"},
+    "3": {"dias_aula": "Segunda e Quarta", "horario": "13h até 15h"},
 }
 
 # =============================================================================
@@ -56,18 +59,20 @@ SCHEDULE_OPTIONS = {
 # =============================================================================
 START_DATE_OPTIONS = {
     "1": "29/06/2026",
-    "2": "26/06/2026",
+    "2": "17/06/2026",
+    "3": "29/06/2026",
 }
 END_DATE_OPTIONS = {
     "1": "01/07/2026",
-    "2": "26/06/2026",
+    "2": "19/06/2026",
+    "3": "29/07/2026",
 }
 
 # =============================================================================
 # 6. ENDEREÇOS
 # =============================================================================
 ADDRESS_OPTIONS = {
-    "1": "📍Avenida Tamandaré, nº 41, bairro Praia de Iracema - CEP.: 60.060-200",
+    "1": "📍Rua Jorn. Antônio Pontes, nº 1138, bairro Cajazeiras - CEP.: 60.864-590",
 }
 
 # =============================================================================
@@ -76,15 +81,21 @@ ADDRESS_OPTIONS = {
 TURMA_OPTIONS = [
     {
         "id": "1", "curso_id": "1", "local_id": "1",
-        "turma_codigo": "26/TRNC-02",
+        "turma_codigo": "26/TRNC-01",
         "agenda_id": "1", "periodo_id": "1",
         "encerramento_id": "1", "endereco_id": "1",
     },
     {
-        "id": "2", "curso_id": "2", "local_id": "1",
-        "turma_codigo": "26/OFDN-05",
+        "id": "2", "curso_id": "2", "local_id": "2",
+        "turma_codigo": "26/PEDI-01",
         "agenda_id": "2", "periodo_id": "2",
         "encerramento_id": "2", "endereco_id": "1",
+    },
+    {
+        "id": "3", "curso_id": "3", "local_id": "1",
+        "turma_codigo": "26/SOMD-02",
+        "agenda_id": "3", "periodo_id": "3",
+        "encerramento_id": "3", "endereco_id": "1",
     },
 ]
 
@@ -166,7 +177,7 @@ TEMPLATE_WIZARD = """\
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Fortaleza - Regional XII</title>
+    <title>Fortaleza - Regional IX</title>
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="/static/assistant.css">
     <link href="https://fonts.googleapis.com/css2?family=Wise:wght@400;700;900&display=swap" rel="stylesheet">
@@ -742,7 +753,7 @@ TEMPLATE_WIZARD = """\
         <div class="header-logos">
             <img src="/static/logo-prefeitura.png" alt="Prefeitura" class="logo-prefeitura-topo">
             <div class="header-divider"></div>
-            <img src="/static/logoprojeto.jpeg"    alt="Fortaleza Regional XII" class="logo-projeto-topo">
+            <img src="/static/logoprojeto.jpeg"    alt="Fortaleza Regional IX" class="logo-projeto-topo">
         </div>
     </header>
 
@@ -758,7 +769,7 @@ TEMPLATE_WIZARD = """\
                 <div class="wizard-label" data-step-label="index">1. Início</div>
                 <div class="wizard-label" data-step-label="dados">2. Dados pessoais</div>
                 <div class="wizard-label" data-step-label="escolher">3. Escolher</div>
-                <div class="wizard-label" data-step-label="revisao">4. Revisão</div>
+                <div class="wizard-label" data-step-label="revisao">4. Confira seus dados</div>
             </div>
         </div>
 
@@ -771,7 +782,11 @@ TEMPLATE_WIZARD = """\
                 <section class="wizard-panel" data-step="index">
                     <div class="hero-grid">
                         <div class="hero-card">
-                            <span class="hero-pill">FORTALEZA - REGIONAL XII</span>
+                            <span class="hero-pill">FORTALEZA - REGIONAL IX</span>
+                            <p style="margin:10px 0 0; color:#8b0000; font-size:0.9rem; font-weight:700; line-height:1.5;">
+                                Instituto Além dos Olhos - Polo 1<br>
+                                Instituto Além dos Olhos - Polo 2
+                            </p>
                             <h1 class="hero-title">INVISTA EM VOCÊ. CONSTRUA SEU FUTURO.</h1>
                             <p class="hero-subtitle">
                                 Descubra novas possibilidades, adquira conhecimentos práticos e dê o
@@ -783,8 +798,9 @@ TEMPLATE_WIZARD = """\
                                 <div class="hero-highlight">
                                     <strong>CURSOS DISPONÍVEIS:</strong>
                                     <div class="cursos-lista">
-                                        <span class="curso-tag">&#128218; 26/TRNC 02 - Trancista</span>
-                                        <span class="curso-tag">&#128218; 26/OFDN 05 - Oficina de Dança (São João)</span>
+                                        <span class="curso-tag">&#128218; 26/TRNC 01 - Trancista</span>
+                                        <span class="curso-tag">&#128218; 26/PEDI 01 - Pedicure</span>
+                                        <span class="curso-tag">&#128218; 26/SOMD 02 - Social Media</span>
                                     </div>
                                 </div>
 
@@ -800,6 +816,7 @@ TEMPLATE_WIZARD = """\
                                             <div class="benefit-slide">Mais oportunidades de emprego e geração de renda</div>
                                             <div class="benefit-slide">&#128218; Material didático incluso</div>
                                             <div class="benefit-slide">Networking e troca de experiências</div>
+                                            <div class="benefit-slide">Suporte para desenvolver sua carreira profissional</div>
                                             <div class="benefit-slide">Estrutura e recursos adequados para cada formação</div>
                                             <div class="benefit-slide">Qualificação para quem deseja crescer e conquistar novas oportunidades</div>
                                         </div>
@@ -815,14 +832,15 @@ TEMPLATE_WIZARD = """\
 
                                 <!-- Sobre o projeto -->
                                 <div class="hero-highlight">
-                                    <strong>FORTALEZA - REGIONAL XII</strong>
+                                    <strong>FORTALEZA - REGIONAL IX</strong>
                                     Programa de qualificação profissional gratuita para ampliar suas
                                     oportunidades e fortalecer sua entrada no mercado de trabalho.
                                 </div>
                             </div>
 
-                            <div class="panel-actions">
-                                <button type="button" class="cta-button" data-next="dados">
+                            <div style="margin-top:18px; text-align:center;">
+                                <button type="button" class="cta-button" data-next="dados"
+                                        style="width:100%;max-width:360px;min-height:54px;padding:14px 22px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;background:linear-gradient(90deg,#8b0000 0%,#c23b3b 100%);color:#fff;border:none;border-radius:18px;cursor:pointer;box-shadow:0 10px 24px rgba(139,0,0,0.24);">
                                     Começar inscrição
                                 </button>
                             </div>
@@ -1050,7 +1068,7 @@ TEMPLATE_WIZARD = """\
                 <!-- ══════════════ PASSO 4: REVISÃO ══════════════ -->
                 <section class="wizard-panel" data-step="revisao">
                     <div class="step-card">
-                        <h2 class="panel-title">Revise antes de finalizar</h2>
+                        <h2 class="panel-title">Confira seus dados para finalização</h2>
                         <p class="panel-subtitle">Confira os dados preenchidos e confirme sua participação.</p>
 
                         <div class="review-layout">
@@ -1111,7 +1129,7 @@ TEMPLATE_WIZARD = """\
                                            value="sim"
                                            {% if form_data.get('confirma_dados') %}checked{% endif %}>
                                     <span>
-                                        Confirmo que tenho 18 anos ou mais e interesse em participar do
+                                        Confirmo que tenho 16 anos ou mais e interesse em participar do
                                         curso selecionado.<br>
                                         Todas as informações fornecidas são verdadeiras e estou de acordo
                                         com os termos de participação.<br>
@@ -1126,7 +1144,6 @@ TEMPLATE_WIZARD = """\
                                     <strong>Ao confirmar você declara a ciência de que:</strong>
                                     <ul>
                                         <li>O curso é totalmente gratuito</li>
-                                        <li>Os dados serão usados apenas para inscrição</li>
                                     </ul>
                                 </div>
 
@@ -1666,7 +1683,7 @@ TEMPLATE_CONFIRMACAO = """\
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Fortaleza - Regional XII</title>
+    <title>Fortaleza - Regional IX</title>
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="/static/assistant.css">
     <link href="https://fonts.googleapis.com/css2?family=Wise:wght@400;700;900&display=swap" rel="stylesheet">
@@ -1889,7 +1906,7 @@ TEMPLATE_CONFIRMACAO = """\
         <div class="header-logos">
             <img src="/static/logo-prefeitura.png" alt="Prefeitura" class="logo-prefeitura-topo">
             <div class="header-divider"></div>
-            <img src="/static/logoprojeto.jpeg"    alt="Fortaleza Regional XII" class="logo-projeto-topo">
+            <img src="/static/logoprojeto.jpeg"    alt="Fortaleza Regional IX" class="logo-projeto-topo">
         </div>
     </header>
 
@@ -2129,7 +2146,7 @@ def confirmacao():
     protocolo = session.get("protocolo")
     if not protocolo:
         return redirect(url_for("home"))
-    home_url = "https://fortaleza-regional-12.onrender.com"
+    home_url = "https://fortaleza-regional-9.onrender.com"
     return render_template_string(
         TEMPLATE_CONFIRMACAO,
         protocolo          = protocolo,
@@ -2141,11 +2158,11 @@ def confirmacao():
 # =============================================================================
 SUPABASE_FUNCTION_URL = os.environ.get(
     "SUPABASE_FUNCTION_URL",
-    "https://egpyhfzatabyftwajoad.supabase.co/functions/v1/fgm-register",
+    "https://egpyhfzatabyftwajoad.supabase.co/functions/v1/fgm-fortaleza-register",
 )
 SUPABASE_API_KEY = os.environ.get(
     "SUPABASE_API_KEY",
-    "jyUskwXkc54ZcMPyADLFN6LvZO0I60e3",
+    os.environ.get("FGM_FORTALEZA_API_KEY", "jyUskwXkc54ZcMPyADLFN6LvZO0I60e3"),
 )
 
 def normalize_phone_number(phone):
@@ -2154,22 +2171,30 @@ def normalize_phone_number(phone):
 
 def send_registration_to_supabase(form_data):
     phone = normalize_phone_number(form_data.get("whatsapp", ""))
+    data_inicio = form_data.get("data_inicio", "")
+    horario     = form_data.get("horario", "")
+    inicioaula  = f"{data_inicio} {horario}".strip() if data_inicio else horario
     payload = {
         "name":           form_data.get("nome", ""),
         "phone":          phone,
         "curso":          form_data.get("curso", ""),
+        "turma":          form_data.get("turma", ""),
+        "nomelocal":      form_data.get("local", ""),
+        "endereço":       form_data.get("endereco_curso", ""),
+        "inicioaula":     inicioaula,
         "local":          form_data.get("local", ""),
         "dia_semana":     form_data.get("dias_aula", ""),
         "dias_semana":    form_data.get("dias_aula", ""),
-        "data_inicio":    form_data.get("data_inicio", ""),
+        "data_inicio":    data_inicio,
         "data_inscricao": datetime.utcnow().isoformat() + "Z",
-        "horario":        form_data.get("horario", ""),
+        "horario":        horario,
     }
     headers = {
         "Content-Type":  "application/json",
         "Accept":        "application/json",
         "x-api-key":     SUPABASE_API_KEY,
         "Authorization": f"Bearer {SUPABASE_API_KEY}",
+        "api_key":       SUPABASE_API_KEY,
     }
     response = requests.post(
         SUPABASE_FUNCTION_URL, headers=headers, json=payload, timeout=10
