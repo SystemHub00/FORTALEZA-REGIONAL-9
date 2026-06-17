@@ -40,7 +40,7 @@ LOCAL_OPTIONS = [
 # 2. CATÁLOGO DE CURSOS
 # =============================================================================
 COURSE_CATALOG = [
-    {"id": "1", "nome": "26/TRNC 01 - TRANCISTA"},
+    {"id": "1", "nome": "26/DSBR 06 - DESIGNER DE SOBRANCELHAS"},
     {"id": "2", "nome": "26/PEDI 01 - PEDICURE"},
     {"id": "3", "nome": "26/SOMD 02 - SOCIAL MEDIA"},
 ]
@@ -81,7 +81,7 @@ ADDRESS_OPTIONS = {
 TURMA_OPTIONS = [
     {
         "id": "1", "curso_id": "1", "local_id": "1",
-        "turma_codigo": "26/TRNC-01",
+        "turma_codigo": "26/DSBR-06",
         "agenda_id": "1", "periodo_id": "1",
         "encerramento_id": "1", "endereco_id": "1",
     },
@@ -798,7 +798,7 @@ TEMPLATE_WIZARD = """\
                                 <div class="hero-highlight">
                                     <strong>CURSOS DISPONÍVEIS:</strong>
                                     <div class="cursos-lista">
-                                        <span class="curso-tag">&#128218; 26/TRNC 01 - Trancista</span>
+                                        <span class="curso-tag">&#128218; 26/DSBR 06 - Designer de Sobrancelhas</span>
                                         <span class="curso-tag">&#128218; 26/PEDI 01 - Pedicure</span>
                                         <span class="curso-tag">&#128218; 26/SOMD 02 - Social Media</span>
                                     </div>
@@ -2158,51 +2158,41 @@ def confirmacao():
 # =============================================================================
 SUPABASE_FUNCTION_URL = os.environ.get(
     "SUPABASE_FUNCTION_URL",
-    "https://egpyhfzatabyftwajoad.supabase.co/functions/v1/fgm-fortaleza-register",
+    "https://egpyhfzatabyftwajoad.supabase.co/functions/v1/fgm-register",
 )
 SUPABASE_API_KEY = os.environ.get(
     "SUPABASE_API_KEY",
-    os.environ.get("FGM_FORTALEZA_API_KEY", "jyUskwXkc54ZcMPyADLFN6LvZO0I60e3"),
+    "jyUskwXkc54ZcMPyADLFN6LvZO0I60e3",
 )
 
 def normalize_phone_number(phone):
     digits = re.sub(r"[^\d]", "", phone or "")
-    return f"55{digits}" if len(digits) == 11 else digits
+    if len(digits) == 11:
+        return f"55{digits}"
+    return digits
 
 def send_registration_to_supabase(form_data):
     phone = normalize_phone_number(form_data.get("whatsapp", ""))
-    data_inicio = form_data.get("data_inicio", "")
-    horario     = form_data.get("horario", "")
-    inicioaula  = f"{data_inicio} {horario}".strip() if data_inicio else horario
     payload = {
         "name":           form_data.get("nome", ""),
         "phone":          phone,
         "curso":          form_data.get("curso", ""),
-        "turma":          form_data.get("turma", ""),
-        "nomelocal":      form_data.get("local", ""),
-        "endereço":       form_data.get("endereco_curso", ""),
-        "inicioaula":     inicioaula,
         "local":          form_data.get("local", ""),
         "dia_semana":     form_data.get("dias_aula", ""),
         "dias_semana":    form_data.get("dias_aula", ""),
-        "data_inicio":    data_inicio,
+        "data_inicio":    form_data.get("data_inicio", ""),
         "data_inscricao": datetime.utcnow().isoformat() + "Z",
-        "horario":        horario,
+        "horario":        form_data.get("horario", ""),
     }
     headers = {
         "Content-Type":  "application/json",
         "Accept":        "application/json",
         "x-api-key":     SUPABASE_API_KEY,
         "Authorization": f"Bearer {SUPABASE_API_KEY}",
-        "api_key":       SUPABASE_API_KEY,
     }
-    response = requests.post(
-        SUPABASE_FUNCTION_URL, headers=headers, json=payload, timeout=10
-    )
+    response = requests.post(SUPABASE_FUNCTION_URL, headers=headers, json=payload, timeout=10)
     if not response.ok:
-        raise RuntimeError(
-            f"Supabase retornou {response.status_code}: {response.text[:500]}"
-        )
+        raise RuntimeError(f"Supabase retornou {response.status_code}: {response.text[:500]}")
     return response
 
 if __name__ == "__main__":
