@@ -49,23 +49,23 @@ COURSE_CATALOG = [
 # 3. HORÁRIOS
 # =============================================================================
 SCHEDULE_OPTIONS = {
-    "1": {"dias_aula": "Segunda e Quarta", "horario": "13h até 18h"},
-    "2": {"dias_aula": "Quarta a Sexta",   "horario": "13h até 18h"},
-    "3": {"dias_aula": "Segunda e Quarta", "horario": "13h até 15h"},
+    "1": {"dias_aula": "Segunda e Quarta", "horario": "13h até 18h"},  # TRNC01 - inalterado
+    "2": {"dias_aula": "Quarta a Terça",   "horario": "13h até 18h"},  # PEDI01 - dias atualizado
+    "3": {"dias_aula": "Segunda e Quarta", "horario": "13h até 15h"},  # SOMD02 - inalterado
 }
 
 # =============================================================================
 # 4-5. DATAS
 # =============================================================================
 START_DATE_OPTIONS = {
-    "1": "29/06/2026",
-    "2": "17/06/2026",
-    "3": "29/06/2026",
+    "1": "29/06/2026",  # inalterado
+    "2": "17/06/2026",  # inalterado
+    "3": "29/06/2026",  # inalterado
 }
 END_DATE_OPTIONS = {
-    "1": "01/07/2026",
-    "2": "19/06/2026",
-    "3": "29/07/2026",
+    "1": "01/07/2026",  # inalterado
+    "2": "23/06/2026",  # PEDI01 - atualizado (era 19/06)
+    "3": "29/07/2026",  # inalterado
 }
 
 # =============================================================================
