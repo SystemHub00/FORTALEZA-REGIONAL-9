@@ -43,7 +43,7 @@ COURSE_CATALOG = [
     {"id": "1", "nome": "26/DSBR 06 - DESIGNER DE SOBRANCELHAS"},
     {"id": "2", "nome": "26/PEDI 01 - PEDICURE"},
     {"id": "3", "nome": "26/SOMD 02 - SOCIAL MEDIA"},
-    {"id": "4", "nome": "26/DSBR 008 - DESIGNER DE SOBRANCELHAS"},
+    # ── id 4 (26/DSBR 008) REMOVIDO ──────────────────────────────────────────
 ]
 
 # =============================================================================
@@ -51,7 +51,7 @@ COURSE_CATALOG = [
 # =============================================================================
 SCHEDULE_OPTIONS = {
     "1": {"dias_aula": "Quarta e Terça", "horario": "13h até 18h"},
-    "2": {"dias_aula": "Quarta a Terça",   "horario": "13h até 18h"},
+    "2": {"dias_aula": "Quarta a Terça", "horario": "13h até 18h"},
     "3": {"dias_aula": "Segunda e Quarta", "horario": "13h até 15h"},
 }
 
@@ -62,13 +62,13 @@ START_DATE_OPTIONS = {
     "1": "24/06/2026",
     "2": "17/06/2026",
     "3": "29/06/2026",
-    "4": "24/06/2026",
+    # ── key "4" REMOVIDA ─────────────────────────────────────────────────────
 }
 END_DATE_OPTIONS = {
     "1": "30/06/2026",
     "2": "23/06/2026",
     "3": "29/07/2026",
-    "4": "30/06/2026",
+    # ── key "4" REMOVIDA ─────────────────────────────────────────────────────
 }
 
 # =============================================================================
@@ -100,13 +100,7 @@ TURMA_OPTIONS = [
         "agenda_id": "3", "periodo_id": "3",
         "encerramento_id": "3", "endereco_id": "1",
     },
-    # ── NOVA TURMA ────────────────────────────────────────────────────────────
-    {
-        "id": "4", "curso_id": "4", "local_id": "1",
-        "turma_codigo": "26/DSBR-008",
-        "agenda_id": "2", "periodo_id": "4",
-        "encerramento_id": "4", "endereco_id": "1",
-    },
+    # ── id 4 (26/DSBR-008) REMOVIDO ──────────────────────────────────────────
 ]
 
 # =============================================================================
@@ -379,7 +373,6 @@ TEMPLATE_WIZARD = """\
                                         <span class="curso-tag">&#128218; 26/DSBR 06 - Designer de Sobrancelhas</span>
                                         <span class="curso-tag">&#128218; 26/PEDI 01 - Pedicure</span>
                                         <span class="curso-tag">&#128218; 26/SOMD 02 - Social Media</span>
-                                        <span class="curso-tag">&#128133; 26/DSBR 008 - Designer de Sobrancelhas</span>
                                     </div>
                                 </div>
                                 <div class="hero-highlight">
