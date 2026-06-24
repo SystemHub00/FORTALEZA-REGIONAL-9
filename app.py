@@ -50,7 +50,7 @@ COURSE_CATALOG = [
 # 3. HORÁRIOS
 # =============================================================================
 SCHEDULE_OPTIONS = {
-    "1": {"dias_aula": "Segunda e Quarta", "horario": "13h até 18h"},
+    "1": {"dias_aula": "Quarta e Terça", "horario": "13h até 18h"},
     "2": {"dias_aula": "Quarta a Terça",   "horario": "13h até 18h"},
     "3": {"dias_aula": "Segunda e Quarta", "horario": "13h até 15h"},
 }
@@ -59,13 +59,13 @@ SCHEDULE_OPTIONS = {
 # 4-5. DATAS
 # =============================================================================
 START_DATE_OPTIONS = {
-    "1": "29/06/2026",
+    "1": "24/06/2026",
     "2": "17/06/2026",
     "3": "29/06/2026",
     "4": "24/06/2026",
 }
 END_DATE_OPTIONS = {
-    "1": "01/07/2026",
+    "1": "30/06/2026",
     "2": "23/06/2026",
     "3": "29/07/2026",
     "4": "30/06/2026",
