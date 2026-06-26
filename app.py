@@ -380,9 +380,9 @@ TEMPLATE_WIZARD = """\
                                 <div class="hero-highlight">
                                     <strong>CURSOS DISPONÍVEIS:</strong>
                                     <div class="cursos-lista">
-                                        <span class="curso-tag">&#128218; 26/DSBR 06 - Designer de Sobrancelhas</span>
-                                        <span class="curso-tag">&#128218; 26/PEDI 01 - Pedicure</span>
-                                        <span class="curso-tag">&#128218; 26/SOMD 02 - Social Media</span>
+                                        <span class="curso-tag">&#128218; Designer de Sobrancelhas</span>
+                                        <span class="curso-tag">&#128218; Pedicure</span>
+                                        <span class="curso-tag">&#128218; Social Media</span>
                                     </div>
                                 </div>
                                 <div class="hero-highlight">
