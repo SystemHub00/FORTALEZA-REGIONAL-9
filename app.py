@@ -27,38 +27,25 @@ VALID_DDDS = {
 
 LOCAL_OPTIONS = [
     {"id": "1", "nome": "INSTITUTO AL\u00c9M DOS OLHOS - POLO 1"},
-    {"id": "2", "nome": "INSTITUTO AL\u00c9M DOS OLHOS - POLO 2"},
     {"id": "3", "nome": "INSTITUI\u00c7\u00c3O COLETIVO OLHANDO PRA FRENTE"},
 ]
 
 COURSE_CATALOG = [
-    {"id": "1", "nome": "26/DSBR 06 - DESIGNER DE SOBRANCELHAS"},
-    {"id": "2", "nome": "26/PEDI 01 - PEDICURE"},
-    {"id": "3", "nome": "26/SOMD 02 - SOCIAL MEDIA"},
     {"id": "4", "nome": "26/INAT 001 - INTELIG\u00caNCIA ARTIFICIAL"},
     {"id": "5", "nome": "26/DESN 001 - DESIGNER DE UNHAS"},
 ]
 
 SCHEDULE_OPTIONS = {
-    "1": {"dias_aula": "Quarta e Ter\u00e7a",    "horario": "13h at\u00e9 18h"},
-    "2": {"dias_aula": "Quarta a Ter\u00e7a",    "horario": "13h at\u00e9 18h"},
-    "3": {"dias_aula": "Ter\u00e7a e Quinta",    "horario": "14:30h at\u00e9 16:30h"},
-    "4": {"dias_aula": "Ter\u00e7a e Quinta",    "horario": "15h at\u00e9 17h"},
-    "5": {"dias_aula": "Segunda a Sexta",          "horario": "08h at\u00e9 12h"},
+    "4": {"dias_aula": "Ter\u00e7a e Quinta", "horario": "15h at\u00e9 17h"},
+    "5": {"dias_aula": "Segunda a Sexta",       "horario": "08h at\u00e9 12h"},
 }
 
 START_DATE_OPTIONS = {
-    "1": "24/06/2026",
-    "2": "17/06/2026",
-    "3": "07/07/2026",
     "4": "25/08/2026",
     "5": "17/08/2026",
 }
 
 END_DATE_OPTIONS = {
-    "1": "30/06/2026",
-    "2": "23/06/2026",
-    "3": "30/07/2026",
     "4": "17/09/2026",
     "5": "21/08/2026",
 }
@@ -69,11 +56,8 @@ ADDRESS_OPTIONS = {
 }
 
 TURMA_OPTIONS = [
-    {"id":"1","curso_id":"1","local_id":"1","turma_codigo":"26/DSBR-06",  "agenda_id":"1","periodo_id":"1","encerramento_id":"1","endereco_id":"1"},
-    {"id":"2","curso_id":"2","local_id":"2","turma_codigo":"26/PEDI-01",  "agenda_id":"2","periodo_id":"2","encerramento_id":"2","endereco_id":"1"},
-    {"id":"3","curso_id":"3","local_id":"1","turma_codigo":"26/SOMD-02",  "agenda_id":"3","periodo_id":"3","encerramento_id":"3","endereco_id":"1"},
-    {"id":"4","curso_id":"4","local_id":"1","turma_codigo":"26/INAT-001", "agenda_id":"4","periodo_id":"4","encerramento_id":"4","endereco_id":"1"},
-    {"id":"5","curso_id":"5","local_id":"3","turma_codigo":"26/DESN-001", "agenda_id":"5","periodo_id":"5","encerramento_id":"5","endereco_id":"2"},
+    {"id":"4","curso_id":"4","local_id":"1","turma_codigo":"26/INAT-001","agenda_id":"4","periodo_id":"4","encerramento_id":"4","endereco_id":"1"},
+    {"id":"5","curso_id":"5","local_id":"3","turma_codigo":"26/DESN-001","agenda_id":"5","periodo_id":"5","encerramento_id":"5","endereco_id":"2"},
 ]
 
 def build_course_options():
@@ -143,6 +127,7 @@ def fill_form_data_from_selection(form_data):
     for key in ("local","curso","turma","dias_aula","horario",
                 "data_inicio","encerramento","endereco_curso","opcao_id"):
         form_data.setdefault(key, "")
+
 TEMPLATE_WIZARD = r"""<!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -289,16 +274,13 @@ TEMPLATE_WIZARD = r"""<!DOCTYPE html>
                 <section class="wizard-panel" data-step="index">
                     <div class="hero-grid"><div class="hero-card">
                         <span class="hero-pill">FORTALEZA - REGIONAL IX</span>
-                        <p style="margin:10px 0 0;color:#8b0000;font-size:0.9rem;font-weight:700;line-height:1.5;">Instituto Al&#233;m dos Olhos - Polo 1<br>Instituto Al&#233;m dos Olhos - Polo 2<br>Institui&#231;&#227;o Coletivo Olhando Pra Frente</p>
+                        <p style="margin:10px 0 0;color:#8b0000;font-size:0.9rem;font-weight:700;line-height:1.5;">Instituto Al&#233;m dos Olhos - Polo 1<br>Institui&#231;&#227;o Coletivo Olhando Pra Frente</p>
                         <h1 class="hero-title">INVISTA EM VOC&#202;. CONSTRUA SEU FUTURO.</h1>
                         <p class="hero-subtitle">Descubra novas possibilidades, adquira conhecimentos pr&#225;ticos e d&#234; o primeiro passo para transformar sua vida profissional.</p>
                         <div class="hero-highlights">
                             <div class="hero-highlight">
                                 <strong>CURSOS DISPON&#205;VEIS:</strong>
                                 <div class="cursos-lista">
-                                    <span class="curso-tag">&#128218; Designer de Sobrancelhas</span>
-                                    <span class="curso-tag">&#128218; Pedicure</span>
-                                    <span class="curso-tag">&#128218; Social Media</span>
                                     <span class="curso-tag">&#129302; Intelig&#234;ncia Artificial</span>
                                     <span class="curso-tag">&#128133; Designer de Unhas</span>
                                 </div>
