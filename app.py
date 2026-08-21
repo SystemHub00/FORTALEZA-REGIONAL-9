@@ -32,7 +32,7 @@ LOCAL_OPTIONS = [
 
 COURSE_CATALOG = [
     {"id": "4", "nome": "26/INAT 001 - INTELIG\u00caNCIA ARTIFICIAL"},
-    {"id": "5", "nome": "26/DESN 001 - DESIGNER DE UNHAS"},
+    {"id": "5", "nome": "26/DSUN 004 - DESIGNER DE UNHAS"},
 ]
 
 SCHEDULE_OPTIONS = {
@@ -57,7 +57,7 @@ ADDRESS_OPTIONS = {
 
 TURMA_OPTIONS = [
     {"id":"4","curso_id":"4","local_id":"1","turma_codigo":"26/INAT-001","agenda_id":"4","periodo_id":"4","encerramento_id":"4","endereco_id":"1"},
-    {"id":"5","curso_id":"5","local_id":"3","turma_codigo":"26/DESN-001","agenda_id":"5","periodo_id":"5","encerramento_id":"5","endereco_id":"2"},
+    {"id":"5","curso_id":"5","local_id":"3","turma_codigo":"26/DSUN-004","agenda_id":"5","periodo_id":"5","encerramento_id":"5","endereco_id":"2"},
 ]
 
 def build_course_options():
@@ -475,6 +475,7 @@ TEMPLATE_WIZARD = r"""<!DOCTYPE html>
 </body>
 </html>
 """
+
 TEMPLATE_CONFIRMACAO = r"""<!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -556,6 +557,8 @@ TEMPLATE_CONFIRMACAO = r"""<!DOCTYPE html>
 </body>
 </html>
 """
+
+
 # =============================================================================
 # FLASK APP
 # =============================================================================
